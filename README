@@ -1,7 +1,5 @@
-gcc -DUSE_CLOCK -O3 jacobi1d.c timing.c -o jacobi1d
-
 ./jacobi1d [n] [nsteps] [output_filename]
 
 n = Es el número de puntos en la malla (opcional, valor predeterminado: 100)
 nsteps = Es el número de iteraciones (opcional, valor predeterminado: 100)
-output_filename = Es el nombre del archivo de salida (opcional)
+output_filename = Es el nombre del archivo de salida (opcional) 

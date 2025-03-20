@@ -1,11 +1,14 @@
-CORRER ARCHIVOS DESDE bash serial.sh
-
-Ó, DESDE LA MANERA MÁS BÁSICA:
-
+Si se modifica el archivo jacobi1d.c, se debe compilar nuevamente con el comando:
 gcc -DUSE_CLOCK -O3 jacobi1d.c timing.c -o jacobi1d
 
+Para ejecutar el programa, se debe correr el siguiente comando:
 ./jacobi1d [n] [nsteps] [output_filename] > [output_timing_filename]
 
+Ó, correr el comando:
+bash serial.sh
+En él, se puede modificar el valor de n y nsteps, y el nombre del archivo de salida.
+
+Donde:
 n = Es el número de puntos en la malla (opcional, valor predeterminado: 100)
 nsteps = Es el número de iteraciones (opcional, valor predeterminado: 100)
 output_filename = Es el nombre del archivo de salida (opcional) 

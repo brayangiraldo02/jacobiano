@@ -1,3 +1,4 @@
 *.out
 jacobi1d
 *.png
+**/venv/

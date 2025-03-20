@@ -1,1 +1,24 @@
 En el método de Jacobi para resolver la ecuación de Poisson 1D, N determina el número de puntos de la malla (afectando la precisión espacial y los requisitos de memoria), mientras NSTEPS define las iteraciones realizadas (mejorando la convergencia sin aumentar memoria). Al incrementar N, la discretización espacial mejora pero se requiere un aumento más que proporcional en NSTEPS debido a que la tasa de convergencia disminuye aproximadamente como (1-π²/N²) para ecuaciones tipo Poisson. El tiempo de ejecución escala como O(N×NSTEPS), por lo que duplicar N tiene mayor impacto computacional que duplicar NSTEPS. La estrategia óptima es fijar N según la precisión espacial requerida y luego ajustar NSTEPS experimentalmente hasta lograr convergencia, considerando que NSTEPS solo reduce el error iterativo pero no puede superar las limitaciones impuestas por la discretización (N). Para valores grandes de N (ej. 10⁷), se recomienda incrementar NSTEPS por un factor significativo (ej. 10⁵), monitoreando la convergencia para ajustes posteriores.
+
+n = Número de puntos internos de la malla. Si no se le entrega valor, se inicializa en 100.
+nsteps = Número de iteraciones. Si no se le entrega valor, se inicializa en 100.
+fname = Nombre del archivo. Si no se le entrega valor, se inicializa como NULL.
+h = Tamaño del paso espacial (Distancia entre dos puntos de malla consecutivos)
+h2 = Utilizado para realizar la función de aproximación de diferencias finitas necesaria para hallar los valores necesarios de las derivadas. Este, al reemplazarlo en la formula de iteración de jacobi, permite hallar los valores de u[i].
+u = Vector solución, se inicializa en 0, se va aproximando a la solución a medida que van pasando las iteraciones. Según las condiciones de frontera de Dirichelet, se fijan con anterioridad con un valor especifico, en este caso 0, y no se modifican en el paso de las iteraciones, sino que sirven como base para ir variando los valores internos. Estos son las posiciones u[0] y u[n] del vector inicial.
+i*h = Es la solución en un punto especifico de la malla.
+f = -u'' (Segunda derivada negativa de u) = Vector del lado derecho, tamaño n+1, guarda los valores de cada punto de la malla. Se inicializa con todos los puntos de la manera f[i] = i * h. Representa un punto específico de la función f(x)=x en el intervalo [0,1]. 
+utmp = Es un puntero a un arreglo de tipo double que se utiliza como arreglo temporal. Se usa para almacenar los nuevos valores de la solución mientras se realiza la iteración de Jacobi. Los valores de frontera de u se definen igual, mientras que los valores internos van variando.
+
+- 8 bytes significan double.
+Cada vez que se aumenta n, se aumenta la memoria necesaria para la ejecución. 
+* Para tener en cuenta: 
+  * Si se tiene 8gb de ram libres, no se puede usar un n mayor a 333333332. 
+    * El archivo u_serial.out queda con un tamaño de 6.48gb, visual studio code no es capaz de procesarlo, se come todos los recursos intentando abrirlo.
+  * Si se tiene 20gb de ram libres, no se puede usar un n mayor a 833333332.
+
+Funcionamiento de función core (jacobi)
+  Se tiene un for principal, que tiene subfors.
+  Primer for: Se maneja con la variable sweep, que se inicializa en 0, debe ser menor a nsweeps, y se realizan incrementos de a 2.
+  Estos incrementos de a 2 se realizan porque en una de las iteraciones internas, en los subfors, se actualiza los valores de utmp y luego los valores de u, contando como una doble iteración interna y generando esa necesidad de actualizar de a dos el valor de sweep.
+  

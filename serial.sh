@@ -9,3 +9,6 @@ ulimit -s unlimited -c unlimited
 N=100000
 NSTEPS=1000
 ./jacobi1d $N $NSTEPS u_serial.out > timing_serial.out
+sudo swapoff -a
+sudo swapon -a
+python3 grafica_serial_alto.py

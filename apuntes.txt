@@ -22,3 +22,13 @@ Funcionamiento de función core (jacobi)
   Primer for: Se maneja con la variable sweep, que se inicializa en 0, debe ser menor a nsweeps, y se realizan incrementos de a 2.
   Estos incrementos de a 2 se realizan porque en una de las iteraciones internas, en los subfors, se actualiza los valores de utmp y luego los valores de u, contando como una doble iteración interna y generando esa necesidad de actualizar de a dos el valor de sweep.
   
+Los pasos para la implementación de las mejoras de optimización serán:
+- Secuencial.
+- Concurrencia:
+  - Hilos.
+  - Hilos con memoria compartida.
+  - Hilos y procesos.
+- Variación en las opciones de compilación.
+
+Para la implementación de hilos:
+  Se puede añadir los hilos en las dos iteraciones que hay en la función base de jacobi: La actualización de los valores temporales (utmp) y los valores del arreglo resultante (u).

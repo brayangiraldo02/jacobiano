@@ -21,14 +21,51 @@ Funcionamiento de función core (jacobi)
   Se tiene un for principal, que tiene subfors.
   Primer for: Se maneja con la variable sweep, que se inicializa en 0, debe ser menor a nsweeps, y se realizan incrementos de a 2.
   Estos incrementos de a 2 se realizan porque en una de las iteraciones internas, en los subfors, se actualiza los valores de utmp y luego los valores de u, contando como una doble iteración interna y generando esa necesidad de actualizar de a dos el valor de sweep.
-  
-Los pasos para la implementación de las mejoras de optimización serán:
+
+Los pasos para las pruebas y optimización del algoritmo:
 - Secuencial.
 - Concurrencia:
   - Hilos.
   - Hilos con memoria compartida.
-  - Hilos y procesos.
+  - Procesos.
 - Variación en las opciones de compilación.
+
+En la versión secuencial:
+Se descubrió que, a pesar de la limitante de n, dicho en párrafos anteriores, si se usa un valor muy bajo de NSTEPS el uso de la ram no aumenta drasticamente. Las primeras pruebas que se hicieron fue con:
+  - N = {1000000, 5000000, 10000000} con NSTEPS = {1000, 2000, 5000}
+  - N = {50000000, 100000000} con NSTEPS = {500, 1000, 2000}
+  - N = {200000000, 300000000, 500000000, 700000000, 830000000} con NSTEPS = {100, 200, 500}
 
 Para la implementación de hilos:
   Se puede añadir los hilos en las dos iteraciones que hay en la función base de jacobi: La actualización de los valores temporales (utmp) y los valores del arreglo resultante (u).
+  Como estos valores se actualizan de manera independiente, se pueden implementar con el fin de distribuir los cálculos.
+
+  Para esto, se debe definir una estructura de datos para los hilos, con el fin de que cada hilo contenga la información que cada uno de ellos necesita para realizar su trabajo:
+    - Rango de índices a procesar (inicio y fin).
+    - Punteros a los arreglos u, utmp y f.
+    - Valores constantes como h2.
+    - Un identificador del hilo.
+    - Una barrera compartida para sincronización.
+
+  Se definirá una función que ejecutará cada hilo, que implemente las siguientes funciones:
+    - Un bucle para los barridos (sweeps).
+    - La lógica para actualizar utmp basado en u.
+    - La sincronización con otros hilos usando barreras.
+    - La lógica para actualizar u basado en utmp.
+    - Otra sincronización antes del siguiente barrido.
+  
+  Para dividir el trabajo entre los hilos y evitar problemas en el procesamiento, se calculará cuántos puntos debe procesador cada hilo con la siguiente fórmula:
+    - Si tenemos n-1 puntos interiores y p hilos, cada hilo procesará aproximadamente (n-1)/p.
+    - Para el caso donde (n-1) no es divisible por p, se debe contemplar para que se asigne un punto adicional a algunos hilos.
+      * Por ejemplo, para el valor máximo de n que se puede procesar con 20gb de ram y las capacidades de la máquina actual en la que se está realizando las pruebas, sería (833333332-1)/12 = 69444444.25, como no es divisible por p, se debe asignar un punto adicional a algunos hilos para equilibrar.
+
+  No olvidar que para concluir que la sincronización se está logrando satisfactoriamente, se deben cumplir las siguientes condiciones:
+   - Todos los hilos deben completar la actualización de utmp antes de que cualquiera comience a actualizar u
+   - Todos los hilos deben completar la actualización de u antes de comenzar el siguiente barrido
+
+  En la función de jacobi, se implementarán las siguientes modificaciones:
+    1. Inicialización de la barrera compartida.
+    2. Crear las estructuras de datos para cada hilo.
+    3. Iniciar los hilos.
+    4. Esperar que todos los hilos terminen.
+    5. Libear los recursos de la barrera.

@@ -1,5 +1,6 @@
 *.out
 jacobi1d
+jacobi
 *.png
 **/venv/
 *.csv

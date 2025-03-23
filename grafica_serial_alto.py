@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Cargar los datos desde el archivo (supongamos que se llama "datos.txt")
+# Cargar los datos desde el archivo
 data = np.loadtxt('u_serial.out')
 
 # Eliminar la última línea donde x es igual a 1
@@ -19,5 +19,10 @@ plt.semilogy(x, y_plot, lw=1)
 plt.gca().invert_yaxis()  # Invierte el eje y para que el valor 0 aparezca en la parte superior
 plt.xlabel('x')
 plt.ylabel('y (escala logarítmica invertida)')
-plt.title('Curva de datos en escala logarítmica invertida y sin la última línea')
+plt.title('Curva de datos en escala logarítmica invertida')
+
+# Guardar la imagen antes de mostrarla
+plt.savefig('jacobi_solucion.png', dpi=300, bbox_inches='tight')
+
+# Luego mostrarla (opcional, puedes eliminar esta línea si solo quieres guardarla)
 plt.show()

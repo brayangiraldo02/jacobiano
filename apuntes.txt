@@ -31,10 +31,7 @@ Los pasos para las pruebas y optimización del algoritmo:
 - Variación en las opciones de compilación.
 
 En la versión secuencial:
-Se descubrió que, a pesar de la limitante de n, dicho en párrafos anteriores, si se usa un valor muy bajo de NSTEPS el uso de la ram no aumenta drasticamente. Las primeras pruebas que se hicieron fue con:
-  - N = {1000000, 5000000, 10000000} con NSTEPS = {1000, 2000, 5000}
-  - N = {50000000, 100000000} con NSTEPS = {500, 1000, 2000}
-  - N = {200000000, 300000000, 500000000, 700000000, 830000000} con NSTEPS = {100, 200, 500}
+Se descubrió que, a pesar de la limitante de n, dicho en párrafos anteriores, si se usa un valor muy bajo de NSTEPS el uso de la ram no aumenta drasticamente.
 
 Para la implementación de hilos:
   Se puede añadir los hilos en las dos iteraciones que hay en la función base de jacobi: La actualización de los valores temporales (utmp) y los valores del arreglo resultante (u).

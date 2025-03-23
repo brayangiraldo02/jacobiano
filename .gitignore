@@ -2,3 +2,5 @@
 jacobi1d
 *.png
 **/venv/
+*.csv
+*.html

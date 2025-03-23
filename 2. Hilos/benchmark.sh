@@ -10,7 +10,7 @@ N_VALUES=(10000 50000 100000 500000 1000000)
 NSTEPS_VALUES=(100 500 1000 2000 5000)
 
 # Compilar el programa
-gcc -DUSE_CLOCK -O3 original-jacobi1d.c timing.c -o jacobi1d
+gcc -DUSE_CLOCK -O3 threads2-jacobi1d.c timing.c -o jacobi1d
 
 # Ejecutar benchmarks
 for N in "${N_VALUES[@]}"; do

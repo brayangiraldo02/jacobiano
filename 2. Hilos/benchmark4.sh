@@ -12,7 +12,7 @@ NSTEPS_VALUES=(100 500 1000 2000 5000)
 # NSTEPS_VALUES=(1000)
 
 # Número de hilos
-NUM_THREADS=4
+NUM_THREADS=12
 
 # Compilar el programa
 gcc -DUSE_CLOCK -O3 threads4-jacobi1d.c timing.c -pthread -march=native -funroll-loops -o jacobi1d

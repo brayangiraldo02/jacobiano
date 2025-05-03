@@ -15,7 +15,7 @@ MEM_BLOCK_SIZE_M1 = "1M"
 MEM_TOTAL_SIZE_M1 = "24G"
 
 LOG_FILENAME = 'benchmark_machine1_plot.log'
-PLOT_DIR = 'plots_machine1' # Directorio para guardar plots
+PLOT_DIR = 'Máquina1' # Directorio para guardar plots
 MACHINE_NAME = "Máquina 1"
 
 # --- Configuración del Logging ---

@@ -1,0 +1,107 @@
+2025-05-02 22:40:53,699 - INFO - --- Iniciando Benchmarks Máquina 1 ---
+2025-05-02 22:40:53,699 - INFO - Resultados y logs en: Máquina1
+2025-05-02 22:40:53,699 - INFO - Duración de cada test: 60s
+2025-05-02 22:40:53,699 - INFO - 
+===== Iniciando Test CPU =====
+2025-05-02 22:40:53,699 - INFO - 
+--- CPU Test: 1 thread(s) ---
+2025-05-02 22:40:53,699 - INFO -   Ejecutando: sysbench cpu --threads=1 --time=60 run
+2025-05-02 22:41:53,708 - INFO -   Resultado CPU (1 threads): 1970.38 events/sec
+2025-05-02 22:41:53,708 - INFO - 
+--- CPU Test: 2 thread(s) ---
+2025-05-02 22:41:53,708 - INFO -   Ejecutando: sysbench cpu --threads=2 --time=60 run
+2025-05-02 22:42:53,716 - INFO -   Resultado CPU (2 threads): 3943.60 events/sec
+2025-05-02 22:42:53,716 - INFO - 
+--- CPU Test: 3 thread(s) ---
+2025-05-02 22:42:53,716 - INFO -   Ejecutando: sysbench cpu --threads=3 --time=60 run
+2025-05-02 22:43:53,725 - INFO -   Resultado CPU (3 threads): 5912.59 events/sec
+2025-05-02 22:43:53,725 - INFO - 
+--- CPU Test: 4 thread(s) ---
+2025-05-02 22:43:53,725 - INFO -   Ejecutando: sysbench cpu --threads=4 --time=60 run
+2025-05-02 22:44:53,733 - INFO -   Resultado CPU (4 threads): 7887.67 events/sec
+2025-05-02 22:44:53,733 - INFO - 
+--- CPU Test: 5 thread(s) ---
+2025-05-02 22:44:53,733 - INFO -   Ejecutando: sysbench cpu --threads=5 --time=60 run
+2025-05-02 22:45:53,741 - INFO -   Resultado CPU (5 threads): 9845.13 events/sec
+2025-05-02 22:45:53,741 - INFO - 
+--- CPU Test: 6 thread(s) ---
+2025-05-02 22:45:53,741 - INFO -   Ejecutando: sysbench cpu --threads=6 --time=60 run
+2025-05-02 22:46:53,749 - INFO -   Resultado CPU (6 threads): 11830.96 events/sec
+2025-05-02 22:46:53,749 - INFO - 
+--- CPU Test: 7 thread(s) ---
+2025-05-02 22:46:53,749 - INFO -   Ejecutando: sysbench cpu --threads=7 --time=60 run
+2025-05-02 22:47:53,757 - INFO -   Resultado CPU (7 threads): 11946.43 events/sec
+2025-05-02 22:47:53,758 - INFO - 
+--- CPU Test: 8 thread(s) ---
+2025-05-02 22:47:53,758 - INFO -   Ejecutando: sysbench cpu --threads=8 --time=60 run
+2025-05-02 22:48:53,766 - INFO -   Resultado CPU (8 threads): 12066.75 events/sec
+2025-05-02 22:48:53,766 - INFO - 
+--- CPU Test: 9 thread(s) ---
+2025-05-02 22:48:53,766 - INFO -   Ejecutando: sysbench cpu --threads=9 --time=60 run
+2025-05-02 22:49:53,775 - INFO -   Resultado CPU (9 threads): 12180.22 events/sec
+2025-05-02 22:49:53,775 - INFO - 
+--- CPU Test: 10 thread(s) ---
+2025-05-02 22:49:53,775 - INFO -   Ejecutando: sysbench cpu --threads=10 --time=60 run
+2025-05-02 22:50:53,784 - INFO -   Resultado CPU (10 threads): 12302.26 events/sec
+2025-05-02 22:50:53,784 - INFO - 
+--- CPU Test: 11 thread(s) ---
+2025-05-02 22:50:53,784 - INFO -   Ejecutando: sysbench cpu --threads=11 --time=60 run
+2025-05-02 22:51:53,793 - INFO -   Resultado CPU (11 threads): 12416.86 events/sec
+2025-05-02 22:51:53,793 - INFO - 
+--- CPU Test: 12 thread(s) ---
+2025-05-02 22:51:53,793 - INFO -   Ejecutando: sysbench cpu --threads=12 --time=60 run
+2025-05-02 22:52:53,801 - INFO -   Resultado CPU (12 threads): 12519.72 events/sec
+2025-05-02 22:52:54,156 - INFO - Gráfico guardado en: Máquina1/máquina_1_cpu_performance.png
+2025-05-02 22:52:54,164 - INFO - 
+===== Iniciando Test Memory (1M block, 24G total) =====
+2025-05-02 22:52:54,164 - INFO - 
+--- Memory Test (24G): 1 thread(s) ---
+2025-05-02 22:52:54,164 - INFO -   Ejecutando: sysbench memory --threads=1 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:55,155 - INFO -   Resultado Memory (1 threads, 24G): 24995.87 MiB/sec
+2025-05-02 22:52:55,156 - INFO - 
+--- Memory Test (24G): 2 thread(s) ---
+2025-05-02 22:52:55,156 - INFO -   Ejecutando: sysbench memory --threads=2 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:56,032 - INFO -   Resultado Memory (2 threads, 24G): 28276.70 MiB/sec
+2025-05-02 22:52:56,032 - INFO - 
+--- Memory Test (24G): 3 thread(s) ---
+2025-05-02 22:52:56,032 - INFO -   Ejecutando: sysbench memory --threads=3 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:56,835 - INFO -   Resultado Memory (3 threads, 24G): 30912.11 MiB/sec
+2025-05-02 22:52:56,835 - INFO - 
+--- Memory Test (24G): 4 thread(s) ---
+2025-05-02 22:52:56,835 - INFO -   Ejecutando: sysbench memory --threads=4 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:57,684 - INFO -   Resultado Memory (4 threads, 24G): 29185.50 MiB/sec
+2025-05-02 22:52:57,685 - INFO - 
+--- Memory Test (24G): 5 thread(s) ---
+2025-05-02 22:52:57,685 - INFO -   Ejecutando: sysbench memory --threads=5 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:58,261 - INFO -   Resultado Memory (5 threads, 24G): 43243.32 MiB/sec
+2025-05-02 22:52:58,261 - INFO - 
+--- Memory Test (24G): 6 thread(s) ---
+2025-05-02 22:52:58,261 - INFO -   Ejecutando: sysbench memory --threads=6 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:58,772 - INFO -   Resultado Memory (6 threads, 24G): 48805.65 MiB/sec
+2025-05-02 22:52:58,772 - INFO - 
+--- Memory Test (24G): 7 thread(s) ---
+2025-05-02 22:52:58,773 - INFO -   Ejecutando: sysbench memory --threads=7 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:59,327 - INFO -   Resultado Memory (7 threads, 24G): 45121.16 MiB/sec
+2025-05-02 22:52:59,327 - INFO - 
+--- Memory Test (24G): 8 thread(s) ---
+2025-05-02 22:52:59,327 - INFO -   Ejecutando: sysbench memory --threads=8 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:52:59,824 - INFO -   Resultado Memory (8 threads, 24G): 50202.62 MiB/sec
+2025-05-02 22:52:59,824 - INFO - 
+--- Memory Test (24G): 9 thread(s) ---
+2025-05-02 22:52:59,825 - INFO -   Ejecutando: sysbench memory --threads=9 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:53:00,303 - INFO -   Resultado Memory (9 threads, 24G): 52161.32 MiB/sec
+2025-05-02 22:53:00,303 - INFO - 
+--- Memory Test (24G): 10 thread(s) ---
+2025-05-02 22:53:00,303 - INFO -   Ejecutando: sysbench memory --threads=10 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:53:00,766 - INFO -   Resultado Memory (10 threads, 24G): 53922.40 MiB/sec
+2025-05-02 22:53:00,766 - INFO - 
+--- Memory Test (24G): 11 thread(s) ---
+2025-05-02 22:53:00,766 - INFO -   Ejecutando: sysbench memory --threads=11 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:53:01,233 - INFO -   Resultado Memory (11 threads, 24G): 53523.77 MiB/sec
+2025-05-02 22:53:01,233 - INFO - 
+--- Memory Test (24G): 12 thread(s) ---
+2025-05-02 22:53:01,233 - INFO -   Ejecutando: sysbench memory --threads=12 --memory-block-size=1M --memory-total-size=24G --time=60 run
+2025-05-02 22:53:01,735 - INFO -   Resultado Memory (12 threads, 24G): 49662.70 MiB/sec
+2025-05-02 22:53:01,887 - INFO - Gráfico guardado en: Máquina1/máquina_1_memory_24G_performance.png
+2025-05-02 22:53:01,895 - INFO - 
+--- Benchmarks Máquina 1 Completados ---
